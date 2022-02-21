@@ -10,6 +10,9 @@ sound(y,Fs)
 %% Save as PDF
 print('Navn', '-dpdf');  
 
+% For LaTex export use:
+print('Navn', '-depsc');  
+
 %% Stop script execution shortcut
 %'Ctrl+c'
 
@@ -95,4 +98,12 @@ atan2(y,x)
 
 ylabel('y')
 hYLabel = get(gca,'YLabel');
- set(hYLabel,'rotation',0,'VerticalAlignment','middle')
+set(hYLabel,'rotation',0,'VerticalAlignment','middle')
+
+%% LaTex in legend
+legend('$sin(x)$','$\frac{d}{dx}sin(x)$','Interpreter','latex');
+
+
+%% Do not display all values in legend
+legend({'A','B'},'AutoUpdate','off')
+% Nothing added to the legend after
