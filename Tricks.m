@@ -26,7 +26,7 @@ x(a:b)
 % x being the array, a to be being the index range
 
 %% Polynomial regression
-A=polyfit(x,y,1);
+A = polyfit(x,y,1);
 % The number represents the type of polynomial
 % First array values gives the slope, second given the y-intercept
 
@@ -35,10 +35,10 @@ y_fit = polyval(A,x);
 
 
 % Example:
-x=(0:2:20);
-y=(0:4:40);
+x = (0:2:20);
+y = (0:4:40);
 plot(x,y)
-A=polyfit(x,y,1);
+A = polyfit(x,y,1);
 y_fit = polyval(A,x);
 hold on
 plot(x,y_fit)
@@ -103,7 +103,23 @@ set(hYLabel,'rotation',0,'VerticalAlignment','middle')
 %% LaTex in legend
 legend('$sin(x)$','$\frac{d}{dx}sin(x)$','Interpreter','latex');
 
-
 %% Do not display all values in legend
 legend({'A','B'},'AutoUpdate','off')
 % Nothing added to the legend after
+
+%% Display new figure Docked
+hf = figure();
+hf.WindowStyle = 'docked';
+
+%% Save print output to text file
+
+% Creates file Name.txt, and giving writing premission (also overwrite)
+fileID = fopen('Name.txt','w'); 
+fprintf(fileID,'Text %g',a);
+fclose(fileID);
+
+%% Remove all breakpoints
+ dbclear all
+
+%% Remove error message of single line
+% Comment: %#ok<*NBRAK>
