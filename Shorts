@@ -1,0 +1,238 @@
+; ----------------------------------------
+; --------------- Oversigt ---------------
+; ----------------------------------------
+	; AltGr + . 	= ...
+	; AltGr + Enter 	= Enter(10)
+	; AltGr + m 	= Åben Matlab
+	; AltGr + c 	= Åben Chrome
+	; AltGr + b 	= Åben Chrome, Brightspace og AUpost
+	; AltGr + t 	= Åben ny fane og luk nuværende
+	; AltGr + s		= Søg på markeret tekst
+	; AltGr + o		= Spring 10 linjer op
+	; AltGr + L		= Spring 10 linjer ned
+	; AltGr + ,		= ; @ genvej
+	; vol{værdi}	= Indstil lyd procent
+	; Ctrl + m		= Minimize current window
+	; Ctrl + Shift+m  = Minimize all windows
+	; < + < 		= \
+	; holdkørende1	= Keep PC running for a certain time
+
+; ----------------------------------------
+; ----------------------------------------
+
+
+	; Undlad ny besked ved opdatering
+#SingleInstance Force
+
+
+	; Numpad Holdes tændt		
+SetNumlockState, AlwaysOn
+return
+
+
+	; AltGr + . = ...
+<^>!.::
+Send, ...
+return
+
+
+
+	; AltGr + Enter = Enter(10)
+<^>!Enter::
+loop, 10 {
+Send, {Enter}
+Sleep 1
+}
+return
+
+
+	; Åben Matlab
+	; Ligger i Matlab folder
+;AltGr + m 
+;<^>!m::
+;Run, MATLAB R2021b.exe
+;return
+
+
+	; Åben Chrome
+	; AltGr + c 
+<^>!c::
+Run, Chrome.exe
+return
+
+
+
+	; Ny dag
+	; AltGr + b = Åben Chrome, Brightspace og AUpost
+!<^>b::
+
+Run, Chrome.exe
+Sleep 1000
+
+SendInput, https://brightspace.au.dk/d2l/home{Enter}
+Sleep 5000
+
+loop, 5 {
+Send, {Tab}
+Sleep 1
+}
+send, {Enter}
+Sleep 500
+
+send, ^t
+Sleep 100
+SendInput, https://post.au.dk/{Enter}
+Sleep 2000
+Send, {Enter}
+
+return
+
+
+	; Bajer
+::bajer?::
+sleep 100
+send, .
+sleep 1000
+send, .
+sleep 1000
+send, .
+sleep 2000
+send, {space}VI SKAL FANME HAVE MANGE BAJER{!}{!}{!}{!}{!}
+return
+
+
+
+	; Åben ny fane og luk nuværende
+	; AltGr + t
+<^>!t::
+send, ^t
+sleep 1
+send, ^{PgUp}
+sleep 1
+send, ^w
+sleep 1
+return
+
+
+	; Søg på markeret tekst
+	; AltGr + s
+<^>!s::
+send, ^c
+run, chrome.exe
+sleep 100
+send, ^v{enter}
+return
+
+
+	; Spring 10 linjer op
+	; AltGr + o
+<^>!o::
+loop, 10{
+send, {up} 
+sleep 1
+}
+return
+
+
+	; Spring 10 linjer ned
+	; AltGr + L
+<^>!l::
+loop, 10{
+send, {down} 
+sleep 1
+}
+return
+
+
+	; @ genvej
+	; AltGr + ,
+<^>!,::
+sendraw, @
+return
+
+
+	; Indstil lyd procent
+	; vol{værdi}{enter} eg. vol50{enter} = set volume to 50%
+
+::vol0::
+soundset, 0
+send, {F2}
+return
+
+::vol25::
+soundset, 25
+return
+
+::vol50::
+soundset, 50
+return
+
+::vol60::
+soundset, 60
+return
+
+::vol75::
+soundset, 75
+return
+
+::vol100::
+soundset, 100
+return
+
+
+
+	; Minimize current window
+	; Ctrl + m
+^m::
+WinMinimize, A
+return
+
+
+
+	; Minimize all windows
+	; Ctrl + Shift+m
++^m::
+WinMinimizeAll
+return
+
+
+	; < + < = \
+::<<::
+send, \
+return
+
+
+	; Keep PC running for certain time
+; 1 Hour
+::holdkørende1::
+
+loop, 6 {
+Sleep 600000 
+Send, o
+}
+return
+
+::holdkørende3::
+; 3 Hours
+loop, 18 {
+Sleep 600000 
+Send, o
+}
+return
+
+::holdkørende6::
+; 6 Hours
+loop, 36 {
+Sleep 600000 
+Send, o
+}
+return
+
+
+::holdkørende12::
+; 12 Hours
+loop, 72 {
+Sleep 600000
+Send, o
+}
+return
