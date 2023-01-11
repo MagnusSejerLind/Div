@@ -1,0 +1,34 @@
+\documentclass[]{article}
+
+\input{Preamble.sty}
+\input{Layout.sty}
+
+
+\begin{document}
+
+%%%%% Title page %%%%%
+\maketitle
+\vspace{50 mm}
+\begin{table}
+\centering
+\begin{tabular}{cll}
+\includegraphics[width = 80 mm]{Images/AU/aulogo_dk_var2_blaa.eps} & \hspace{15 mm} & \includegraphics[width = 30 mm]{Images/AU/ausegl_blaa.eps}
+\end{tabular}
+\end{table}
+
+\thispagestyle{empty} 
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Include files %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \listoffixmes
+    % \tableofcontents
+    \include{1}
+    \include{2}
+    \include{3}
+    % \printbibliography
+    % \include{Appendix}
+
+\end{document}
