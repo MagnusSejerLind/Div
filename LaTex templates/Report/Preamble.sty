@@ -1,0 +1,107 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Packages %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage{gensymb}    % Degree symbol
+\usepackage{amsmath}    % equal fractions and general math commands
+\usepackage{verbatim}   % Comment blocks
+\usepackage{lipsum}     % Lorem ipsum
+\usepackage{hyperref}   % Weblinks
+\usepackage{array}      % Specific table width 
+\usepackage{multirow}   % multiple number of rows and columns in tables
+\usepackage{graphicx}   % import images
+\usepackage[export]{adjustbox} % Placement of images
+\usepackage{fancyhdr}   % Page style
+\usepackage[T1]{fontenc} % font encoding
+\usepackage[numbered,framed]{matlab-prettifier} % inserting Matlab scripts
+\usepackage{geometry}   % Set margins
+\usepackage{biblatex}   % References
+\usepackage{xcolor}     % Remove border of hyperlinks
+\usepackage{multicol}   % Easily split sections into multiple columns
+\usepackage{float}      % Better figure manipulation
+\usepackage{enumitem}   % Improved lists
+\usepackage[ddmmyyyy]{datetime} % Automatic date
+\usepackage{subcaption} % Align pictures with subcaptions
+\usepackage{caption}    % Modify caption
+\usepackage[draft]{fixme}      % Adds Fix me notes, 
+% use as \fxnote*{Note}{Highlighted text} & listoffixmes
+\usepackage{microtype}  % Improved hyphenation
+\usepackage{siunitx}    % Easier non-italic units, use as \si{kg . m}^2
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%  Setup %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addbibresource{Ref.bib} % Reference file name
+
+% Set font size in main.tex line 1
+
+% Set margins
+\geometry{
+    a4paper,
+    left = 3.5 cm, 
+    right = 3.5 cm, 
+    bottom = 2 cm
+}  
+
+\setlength{\parindent}{0pt} % Removes auto indents
+
+% Path to images
+\graphicspath{Images/}
+
+% Matlab editor setup
+\lstset{style= Matlab-editor, basicstyle=\mlttfamily, escapechar=",}
+
+% Color of links
+\hypersetup{colorlinks,linkcolor={black!50!black},citecolor={blue!50!black},urlcolor={blue!80!black}} 
+
+% Default bullet point set to -
+\setlist[itemize]{label=\textendash} 
+
+% Set nested enumerated lists to be Arabic numerals
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}} \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}} \renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}  
+
+\setcounter{secnumdepth}{0} % Removes enumeration from sections and subsections instead of using *, this allows to include in TOC without using add command 
+
+% Center figure captions & sets the label to bold font
+\captionsetup{labelfont=bf,justification=centering} 
+
+% Makes fixme work in compiler and removes title
+\fxsetup{author=}
+
+% Define color of fixme 
+\fxsetup{theme=color}
+\definecolor{fxtarget}{rgb}{1.0000,0.0000,0.0000} 
+\definecolor{fxnote}{rgb}{1.0000,0.0000,0.0000} 
+
+% Depth of table of content
+\setcounter{tocdepth}{1}
+% 0: only chapters, 1 includes sections, 2 includes subsections, etc.
+
+% To insert MATLAB editor: \lstinputlisting[language=MATLAB, caption = {}]{Scripts/.m}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%% Shortcuts %%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% Multiplication dot
+\newcommand{\m}{\cdot}   
+
+% Parenthesis
+\newcommand{\lp}{\left(} 
+\newcommand{\rp}{\right)}
+
+% Brackets
+\newcommand{\lb}{\left[} 
+\newcommand{\rb}{\right]}
+
+% curly bracket
+\newcommand{\lc}{\left\{} 
+\newcommand{\rc}{\right\}}
+
+
+%%%% AutoHotKey %%%%
+% beq   => Begins equation enviroment
+% vs1   => Single line vertical spacing 
+% <<    => \
+% cmn   => \lb\mathbf{}\rb 
+% cvn   => \lc\mathbf{}\rc
